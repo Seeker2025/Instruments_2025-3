@@ -1,6 +1,11 @@
 import * as basicLightbox from 'basiclightbox'
 import "basiclightbox/dist/basicLightbox.min.css";
 
+let AddToFav = 'Add to favorite';
+let RemoveFav = 'Remove from';
+let AddToBas = 'Add to basket';
+let RemoveBas = 'Remove from';
+
 import { common } from '../common';
 const  { KEY_FAVORITE, KEY_BASKET,  KEY_INSTRUMENT} = common;
 const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
@@ -16,10 +21,10 @@ import {
 const favList = document.querySelector('.favorite_list');
 const basketList = document.querySelector('.checkout_list');
 const indexPage = document.getElementById('index');
-const favoritePage = document.getElementById('favorite');
-const basketPage = document.getElementById('basket');
+export const favoritePage = document.getElementById('favorite');
+export const basketPage = document.getElementById('basket');
 
-function createModal({img, name, price, description, id}){
+function createModal({img, name, price, description, id, presentFuv, presentBas}){
   
      const instance = basicLightbox.create(`
 	    <div class="modal js-card" data-id=${id}>
@@ -29,18 +34,19 @@ function createModal({img, name, price, description, id}){
             <img src="${img}" alt="${name}" width="300">
             <h2>${name} <span>id${id}</span></h2>
             <h3>${price}point</h3>
+                <p>${presentFuv}</p>
+                <p>${presentBas}</p>
+
             <p>${description}</p>
               <ul class="container_for_button">
                 <li> 
                   <button class="button js-favorite button_fav" type="button">
-                      <span class="no">Remove from favorite</span>
-                      <span class="yes vis">Add to favorite</span>
+                      ${presentFuv ? AddToFav : RemoveFav }
                   </button>
                 </li>
                 <li> 
                   <button class="button js-basket button_fav" type="button">
-                      <span class="no">Remove from busket</span>
-                      <span class="yes vis">Add to basket</span>
+                      ${presentBas ? RemoveBas : AddToBas}
                   </button>
                 </li>  
               </ul>
@@ -89,14 +95,15 @@ instance.show();
                                           // console.log(evt.target.closest('.js-favorite'));
                                                 
                                           if(evt.target.closest('.js-favorite')){
-                const sel = evt.target.closest('.js-favorite');
-                const yes = sel.querySelector('.yes');
-                const no = sel.querySelector('.no');                     
-                                                yes.classList.toggle('vis');
-                                                no.classList.toggle('vis');
+                // const sel = evt.target.closest('.js-favorite');
+                // const yes = sel.querySelector('.yes');
+                // const no = sel.querySelector('.no');                     
+                //                                 yes.classList.toggle('vis');
+                //                                 no.classList.toggle('vis');
                                                 // console.log(evt.target.closest('.js-favorite'));
                                                 if(indexPage){
-                toFavorite(evt.target, allInstruments);                                 
+                toFavorite(evt.target, allInstruments); 
+                                              
                                                 }
                                                 if(favoritePage){
                 toFavorite(evt.target, allInstruments);
@@ -110,11 +117,11 @@ instance.show();
  
                                           if(evt.target.closest('.js-basket')){
                                                 // console.log(evt.target.closest('.js-basket'));
-                const sel = evt.target.closest('.js-basket');
-                const yes = sel.querySelector('.yes');
-                const no = sel.querySelector('.no');                              
-                                                yes.classList.toggle('vis');
-                                                no.classList.toggle('vis');
+                // const sel = evt.target.closest('.js-basket');
+                // const yes = sel.querySelector('.yes');
+                // const no = sel.querySelector('.no');                              
+                //                                 yes.classList.toggle('vis');
+                //                                 no.classList.toggle('vis');
 
                                                 if(indexPage){
                 toBusket(evt.target, allInstruments);

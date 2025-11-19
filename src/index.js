@@ -27,16 +27,21 @@ jsList.addEventListener('click', onClick);
 function onClick(evt){
     evt.preventDefault();
     console.log(allInstruments);
+    
     if(evt.target.classList.contains('js-info')){
        
-            const product = findProduct(evt.target, instruments);
-            console.log(product);
-            const{img, name, price, description, id}=product
-            createModal({img, name, price, description, id})
+            const product = findProduct(evt.target, allInstruments);
+            
+            product.presentFuv = 0;
+            product.presentBas = 0;
+        //     console.log(product);
+            const{img, name, price, description, id, presentFuv, presentBas} = product
+            createModal({img, name, price, description, id, presentFuv, presentBas})
        
     }
     if(evt.target.classList.contains('js-favorite')){
-        
+        //     product.presentFuv = 1;  
+        // console.log(product);  
             toFavorite(evt.target, allInstruments)
             localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(allInstruments)); 
             createMarkup(allInstruments, jsList);     
@@ -45,7 +50,7 @@ function onClick(evt){
 
 
     if(evt.target.classList.contains('js-basket')){
-        
+        //     product.presentBas = 1;    
             toBusket(evt.target, allInstruments);
             localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(allInstruments)); 
             createMarkup(allInstruments, jsList);   
