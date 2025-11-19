@@ -3,7 +3,7 @@ const{ KEY_FAVORITE, KEY_BASKET, KEY_INSTRUMENT } = common;
 // import { instruments } from '../instruments';
 import { findProduct } from './findProduct';
 // const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
-// import { allInstruments } from '../index';
+import { allInstruments } from '../index';
 
 let favoriteArr = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 let basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
@@ -24,7 +24,7 @@ function toFavorite(elemFuv, allInstruments){
                localStorage.setItem(KEY_FAVORITE, JSON.stringify(favoriteArr));  
                                         allInstruments = allInstruments.map(itm =>{
                                         if(itm.id === product.id) {
-                                        itm.presentFuv = null;
+                                        itm.presentFuv = 0;
                                             }      
                                                  })
                // localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(allInstruments)); 
@@ -33,7 +33,7 @@ function toFavorite(elemFuv, allInstruments){
                
               
            }else{
-               product.presentFuv = 'present';
+               product.presentFuv = 1;
                console.log(product);
                console.log(allInstruments);
                favoriteArr.push(product);
@@ -41,7 +41,7 @@ function toFavorite(elemFuv, allInstruments){
                 
                                         allInstruments = allInstruments.map(itm =>{
                                         if(itm.id === product.id) {
-                                        itm.presentFuv = 'present';
+                                        itm.presentFuv = 1;
                                             }      
                                                  })
                // localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(allInstruments));
@@ -63,7 +63,7 @@ function toFavorite(elemFuv, allInstruments){
                localStorage.setItem(KEY_BASKET, JSON.stringify(basketArr));
                                         allInstruments = allInstruments.map(itm =>{
                                         if(itm.id === product.id) {
-                                        itm.presentBas = null;
+                                        itm.presentBas = 0;
                                             }      
                                                  })
                                            
@@ -72,12 +72,12 @@ function toFavorite(elemFuv, allInstruments){
 
                     
           }else{
-               product.presentBas = 'present';                    
+               product.presentBas = 1;                    
                basketArr.push(product);
                localStorage.setItem(KEY_BASKET, JSON.stringify(basketArr)); 
                                         allInstruments = allInstruments.map(itm =>{
                                         if(itm.id === product.id) {
-                                        itm.presentBas = 'present';
+                                        itm.presentBas = 1;
                                             }      
                                                  })
                // localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(allInstruments));  
