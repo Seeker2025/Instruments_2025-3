@@ -48,3 +48,10 @@ ul.container_for_button{
 .invisible{
     visibility: hidden;
 }
+
+.display{
+    display: block;
+}
+.no_display{
+    display: none;
+}

@@ -11,9 +11,9 @@ let basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
 
 
 function toFavorite(elemFuv, allInstruments){
- console.log(allInstruments);
+//  console.log(a llInstruments);
                 const product = findProduct(elemFuv, allInstruments);
-                console.log(product);
+               //  console.log(product);
                 const inStorage = favoriteArr.some(({ id })=> id === product.id);
               
                
@@ -34,8 +34,8 @@ function toFavorite(elemFuv, allInstruments){
               
            }else{
                product.presentFuv = 1;
-               console.log(product);
-               console.log(allInstruments);
+               // console.log(product);
+               // console.log(allInstruments);
                favoriteArr.push(product);
                localStorage.setItem(KEY_FAVORITE, JSON.stringify(favoriteArr));
                 

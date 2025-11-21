@@ -34,7 +34,7 @@ function onClick(evt){
             
             product.presentFuv = 0;
             product.presentBas = 0;
-        //     console.log(product);
+       
             const{img, name, price, description, id, presentFuv, presentBas} = product
             createModal({img, name, price, description, id, presentFuv, presentBas})
        
