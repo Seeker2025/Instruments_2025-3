@@ -9,6 +9,9 @@ let RemoveBas = 'Remove from';
 import { common } from '../common';
 const  { KEY_FAVORITE, KEY_BASKET,  KEY_INSTRUMENT} = common;
 const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+// console.log(allInstruments);
+// import { allInstruments } from '../index';
+// console.log(allInstruments);
 
 import {  closeMadal } from './closeModal';
 import { createMarkup } from './createMarkup';
@@ -104,20 +107,24 @@ instance.show();
                                                  no.classList.toggle('vis');
                                                 // console.log(evt.target.closest('.js-favorite'));
                                                 if(indexPage){
+    const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+                                                  
+                                          console.log(allInstruments);  
+
                 toFavorite(evt.target, allInstruments); 
 
               
                 
                                               
                                                 }
-                                                if(favoritePage){
-                toFavorite(evt.target, allInstruments);
-                const favorite = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
-                createMarkup(favorite, favList);
-                                                }
-                                                if(basketPage){
-                toFavorite(evt.target, allInstruments);
-                                                }
+                //                                 if(favoritePage){
+                // toFavorite(evt.target, allInstruments);
+                // const favorite = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
+                // createMarkup(favorite, favList);
+                //                                 }
+                //                                 if(basketPage){
+                // toFavorite(evt.target, allInstruments);
+                //                                 }
                                             }
  
                                           if(evt.target.closest('.js-basket')){

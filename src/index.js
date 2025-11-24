@@ -15,6 +15,7 @@ const jsList = document.querySelector('.js-list');
 
 localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(instruments));
 const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+// export { allInstruments };
 // let favoriteArr = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 // let basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
 
@@ -26,14 +27,14 @@ jsList.addEventListener('click', onClick);
 
 function onClick(evt){
     evt.preventDefault();
-    console.log(allInstruments);
+    // console.log(allInstruments);
     
     if(evt.target.classList.contains('js-info')){
        
             const product = findProduct(evt.target, allInstruments);
             
-            product.presentFuv = 0;
-            product.presentBas = 0;
+            // product.presentFuv = 0;
+            // product.presentBas = 0;
        
             const{img, name, price, description, id, presentFuv, presentBas} = product
             createModal({img, name, price, description, id, presentFuv, presentBas})
@@ -41,10 +42,11 @@ function onClick(evt){
     }
     if(evt.target.classList.contains('js-favorite')){
         //     product.presentFuv = 1;  
-        // console.log(product);  
+        // console.log(evt.target); 
+            // const elem =  evt.target.classList.contains('js-favorite');
             toFavorite(evt.target, allInstruments)
-            localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(allInstruments)); 
-            createMarkup(allInstruments, jsList);     
+            // localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(allInstruments)); 
+            // createMarkup(allInstruments, jsList);     
             
     }
 

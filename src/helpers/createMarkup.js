@@ -8,7 +8,7 @@ import {
             favoritePage,
             basketPage
                             } from './createModal';
-console.log(favoritePage);
+// console.log(favoritePage);
 
 const visible = 'visible';
 const invisible = 'invisible';
