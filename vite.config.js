@@ -10,6 +10,14 @@ export default defineConfig(({ command }) => {
       [command === 'serve' ? 'global' : '_global']: {},
     },
     root: 'src',
+    ssr: {
+      noExternal: ['vite-plugin-html-inject',
+        'vite-plugin-full-reload'],
+      },
+      optimizeDeps: {
+        exclude: ['path', 'url', 'source-map-js'],
+    },
+
     build: {
       sourcemap: true,
       rollupOptions: {
