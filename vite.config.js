@@ -3,6 +3,7 @@ import { glob } from 'glob';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 import SortCss from 'postcss-sort-media-queries';
+import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 export default defineConfig(({ command }) => {
   return {
@@ -46,6 +47,7 @@ export default defineConfig(({ command }) => {
       emptyOutDir: true,
     },
     plugins: [
+      nodePolyfills(),
       injectHTML(),
       FullReload(['./src/**/**.html']),
       SortCss({
