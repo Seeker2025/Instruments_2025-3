@@ -34,13 +34,15 @@ function toFavorite(elemFuv, allInstruments){
                                         //          })
                // localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(allInstruments)); 
              
-                
+               //  product.presentFuv = 0;
+               //   localStorage.setItem('favorite01', JSON.stringify(favoriteArr));
                
               
            }else{
                 // console.log(allInstruments);
                console.log('else'); 
-               console.log(product); 
+               console.log(product);
+               product.presentFuv = 1;
                
                favoriteArr.push(product);
                console.log(favoriteArr);

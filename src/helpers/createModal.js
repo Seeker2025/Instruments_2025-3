@@ -9,6 +9,8 @@ let RemoveBas = 'Remove from';
 import { common } from '../common';
 const  { KEY_FAVORITE, KEY_BASKET,  KEY_INSTRUMENT} = common;
 const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
+console.log(favoriteArr);
 // console.log(allInstruments);
 // import { allInstruments } from '../index';
 // console.log(allInstruments);
@@ -28,7 +30,8 @@ export const favoritePage = document.getElementById('favorite');
 export const basketPage = document.getElementById('basket');
 
 function createModal({img, name, price, description, id, presentFuv, presentBas}){
-  
+  let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
+  console.log(favoriteArr);
      const instance = basicLightbox.create(`
 	    <div class="modal js-card" data-id=${id}>
             <div class="cross">
@@ -44,8 +47,7 @@ function createModal({img, name, price, description, id, presentFuv, presentBas}
               <ul class="container_for_button">
                 <li> 
                   <button class="button js-favorite button_fav" type="button">
-                        <span class="no">Remove from favorite</span>
-                        <span class="yes vis">Add to favorite</span>
+                       'Add to favorite'
                   </button>
                 </li>
                 <li> 
@@ -87,7 +89,7 @@ instance.show();
 //  console.log(modal);
 // const favoriteModal = document.querySelector('.modal ul li button.js-favorite');
 // const basketModal =   document.querySelector('.modal ul li button.js-basket');
-// const yes = document.querySelector('button.js-favorite span.yes');
+const btnFavorite = document.querySelector('div.modal button.js-favorite');
 // const no =  document.querySelector('button.js-favorite span.no');
                     // console.log(favoriteModal);
                     // console.log(basketModal);
@@ -101,18 +103,26 @@ instance.show();
                                                 
                                           if(evt.target.closest('.js-favorite')){
                  const sel = evt.target.closest('.js-favorite');
-                 const yes = sel.querySelector('.yes');
-                 const no = sel.querySelector('.no');                     
-                                                 yes.classList.toggle('vis');
-                                                 no.classList.toggle('vis');
+                 //const yes = sel.querySelector('.yes');
+                 //const no = sel.querySelector('.no');
+                             ;                    
+                                                // yes.classList.toggle('vis');
+                                                // no.classList.toggle('vis');
                                                 // console.log(evt.target.closest('.js-favorite'));
                                                 if(indexPage){
-    const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+                                             
+                // if(favoriteArr.some((itm)=>itm.id ===id)){
+                //   btnFavorite.textContent='No'; 
+                //  }else{
+                //   btnFavorite.textContent='Add';
+                //  }   
+    // const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
                                                   
-                                          console.log(allInstruments);  
+                                          // console.log(allInstruments);  
 
                 toFavorite(evt.target, allInstruments); 
-
+ let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];               
+console.log(favoriteArr);     
               
                 
                                               
