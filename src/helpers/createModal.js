@@ -8,7 +8,7 @@ let RemoveBas = 'Remove from';
 
 import { common } from '../common';
 const  { KEY_FAVORITE, KEY_BASKET,  KEY_INSTRUMENT} = common;
-const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+// const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
 let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
 console.log(favoriteArr);
 // console.log(allInstruments);
@@ -119,10 +119,10 @@ const btnFavorite = document.querySelector('div.modal button.js-favorite');
     // const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
                                                   
                                           // console.log(allInstruments);  
-
-                toFavorite(evt.target, allInstruments); 
- let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];               
-console.log(favoriteArr);     
+const allInstruments02 = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+                toFavorite(evt.target, allInstruments02); 
+//  let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];               
+// console.log(favoriteArr);     
               
                 
                                               

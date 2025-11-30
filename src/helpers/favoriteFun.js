@@ -3,19 +3,21 @@ const{ KEY_FAVORITE, KEY_BASKET, KEY_INSTRUMENT } = common;
 // import { instruments } from '../instruments';
 import { findProduct } from './findProduct';
 // const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
-import { allInstruments } from '../index';
+// import { allInstruments } from '../index';
 import { stringify } from 'postcss';
 
-let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
-let basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
-console.log(favoriteArr);
+// let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
+// let basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
+// console.log(favoriteArr);
 
 // let a = 0;
-function toFavorite(elemFuv, allInstruments){
+function toFavorite(elemFuv, arr){
 //  console.log(a llInstruments);
-                const product = findProduct(elemFuv, allInstruments);
+
+                const product = findProduct(elemFuv, arr);
                 console.log(product);
-                console.log(favoriteArr);
+               //  console.log(favoriteArr);
+               let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
                 const inStorage = favoriteArr.some((itm)=> itm.id === product.id);
                 console.log(inStorage);//// false or true
                                                      
@@ -23,6 +25,7 @@ function toFavorite(elemFuv, allInstruments){
           //    product.presentFuv = 1;
                console.log('if');
                console.log(product);
+               let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
                favoriteArr = favoriteArr.filter((itm)=>itm.id!==product.id);
                localStorage.setItem('favorite01', JSON.stringify(favoriteArr));
             
