@@ -11,10 +11,10 @@ import { stringify } from 'postcss';
 // console.log(favoriteArr);
 
 // let a = 0;
-function toFavorite(elemFuv, arr){
+function toFavorite(elemFuv){
 //  console.log(a llInstruments);
 
-                const product = findProduct(elemFuv, arr);
+                const product = findProduct(elemFuv);
                 console.log(product);
                //  console.log(favoriteArr);
                let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
