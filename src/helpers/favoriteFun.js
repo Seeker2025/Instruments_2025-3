@@ -6,9 +6,12 @@ import { findProduct } from './findProduct';
 // import { allInstruments } from '../index';
 import { stringify } from 'postcss';
 
-// let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
+let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
 // let basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
-// console.log(favoriteArr);
+console.log(favoriteArr);
+
+
+
 
 // let a = 0;
 function toFavorite(elemFuv){
@@ -20,14 +23,18 @@ function toFavorite(elemFuv){
                let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
                 const inStorage = favoriteArr.some((itm)=> itm.id === product.id);
                 console.log(inStorage);//// false or true
-                                                     
+                const favoriteBtn = document.querySelector('button.js-favorite');                                    
         if(inStorage){
           //    product.presentFuv = 1;
                console.log('if');
                console.log(product);
+               
+               // console.log(favoriteBtn);
                let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
                favoriteArr = favoriteArr.filter((itm)=>itm.id!==product.id);
+               favoriteBtn.textContent = 'add';
                localStorage.setItem('favorite01', JSON.stringify(favoriteArr));
+               // console.log(favoriteArr);
             
               
                                         // allInstruments = allInstruments.map(itm =>{
@@ -42,16 +49,17 @@ function toFavorite(elemFuv){
                
               
            }else{
-                // console.log(allInstruments);
+               // console.log(allInstruments);
                console.log('else'); 
                console.log(product);
                product.presentFuv = 1;
                
                favoriteArr.push(product);
                console.log(favoriteArr);
+               favoriteBtn.textContent = 'rem';
                
                localStorage.setItem('favorite01', JSON.stringify(favoriteArr));
-                
+               //  console.log(favoriteArr);
                                    // allInstruments = allInstruments.map((itm) =>{
                                    //      // console.log(itm.id);
                                    //      // console.log(product.id);

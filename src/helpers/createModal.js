@@ -6,11 +6,13 @@ let RemoveFav = 'Remove from';
 let AddToBas = 'Add to basket';
 let RemoveBas = 'Remove from';
 
+import { instruments    } from '../instruments';
+
 import { common } from '../common';
 const  { KEY_FAVORITE, KEY_BASKET,  KEY_INSTRUMENT} = common;
 // const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
 let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
-console.log(favoriteArr);
+
 // console.log(allInstruments);
 // import { allInstruments } from '../index';
 // console.log(allInstruments);
@@ -30,7 +32,14 @@ export const favoritePage = document.getElementById('favorite');
 export const basketPage = document.getElementById('basket');
 
 function createModal({img, name, price, description, id, presentFuv, presentBas}){
-  let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
+  // let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
+    const btnFavorite = document.querySelector('div.modal button.js-favorite');
+      // if(favoriteArr.some((itm)=>itm.id ===id)){
+      //             //  btnFavorite.textContent='No'; 
+      //             console.log('Yes');
+      //             }else{
+      //             //  btnFavorite.textContent='Add';
+      //             } 
   console.log(favoriteArr);
      const instance = basicLightbox.create(`
 	    <div class="modal js-card" data-id=${id}>
@@ -89,7 +98,7 @@ instance.show();
 //  console.log(modal);
 // const favoriteModal = document.querySelector('.modal ul li button.js-favorite');
 // const basketModal =   document.querySelector('.modal ul li button.js-basket');
-const btnFavorite = document.querySelector('div.modal button.js-favorite');
+
 // const no =  document.querySelector('button.js-favorite span.no');
                     // console.log(favoriteModal);
                     // console.log(basketModal);
@@ -98,6 +107,7 @@ const btnFavorite = document.querySelector('div.modal button.js-favorite');
                     // console.log(basketPage);
                     // console.log(indexPage);
                                           function onClick(evt){
+                                          evt.preventDefault();
                                           // console.log(evt.target);
                                           // console.log(evt.target.closest('.js-favorite'));
                                                 
@@ -119,22 +129,30 @@ const btnFavorite = document.querySelector('div.modal button.js-favorite');
     // const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
                                                   
                                           // console.log(allInstruments);  
-const allInstruments02 = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
-                toFavorite(evt.target, allInstruments02); 
+// const allInstruments02 = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+                toFavorite(evt.target, instruments); 
 //  let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];               
-// console.log(favoriteArr);     
+   
               
                 
                                               
                                                 }
-                //                                 if(favoritePage){
-                // toFavorite(evt.target, allInstruments);
-                // const favorite = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
-                // createMarkup(favorite, favList);
+                                                 if(favoritePage){
+                                                  
+                                                  console.log('Hi');
+                toFavorite(evt.target, favoriteArr);
+                const favorite02 = JSON.parse(localStorage.getItem('favorite01')) ?? [];
+                createMarkup(favorite02, favList);
+
+                //if(favoriteArr.some((itm)=>itm.id ===id)){
+                //   btnFavorite.textContent='No'; 
+                //  }else{
+                //   btnFavorite.textContent='Add';
+                //  }  
                 //                                 }
                 //                                 if(basketPage){
                 // toFavorite(evt.target, allInstruments);
-                //                                 }
+                                                }
                                             }
  
                                           if(evt.target.closest('.js-basket')){
@@ -150,11 +168,13 @@ const allInstruments02 = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
                                                 }
                                                 if(basketPage){
                 toBusket(evt.target, allInstruments);
+                console.log(id);  
                 const basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
                 createMarkup(basketArr,  basketList);  
                                                 }
                                                 if(favoritePage){
                 toBusket(evt.target, allInstruments);
+                console.log('id'); 
                                                 }
                                             }
                                           }

@@ -9,8 +9,7 @@ import { instruments } from '../instruments';
 
 function findProduct(elem){
     const productId = Number(elem.closest('.js-card').dataset.id)
-    const instruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
-   return instruments.find(({id}) => id === productId);
+    return instruments.find(({id}) => id === productId);
    
 }
 
