@@ -13,14 +13,13 @@ const favList = document.querySelector('.favorite_list');
 
 
 
-const favorite = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
-// const basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
-// console.log(favorite);
+let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
+console.log(favoriteArr);
 
 // import { toFavorite } from './helpers/favoriteFun';
 
 
-createMarkup(favorite, favList);
+createMarkup(favoriteArr, favList);
 
 
 // buttonDis('.js-favorite', list);
@@ -33,7 +32,7 @@ createMarkup(favorite, favList);
      
       if(evt.target.classList.contains('js-info')){
        
-               const product = findProduct(evt.target, favorite);
+               const product = findProduct(evt.target);
                console.log(product);
                const{ description, id, img, name, present, price  } = product;
                createModal({description, id, img, name, present, price });
@@ -45,7 +44,7 @@ createMarkup(favorite, favList);
                 // console.log(evt.target);
                 
                 
-                toFavorite(evt.target, allInstruments);
+                toFavorite(evt.target);
                 const favorite = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
                 createMarkup(favorite, favList);
             
