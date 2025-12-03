@@ -6,7 +6,8 @@ let RemoveBas = 'Remove from';
 
 import { 
             favoritePage,
-            basketPage
+            basketPage,
+            indexPage
                             } from './createModal';
 // console.log(favoritePage);
 
@@ -29,9 +30,9 @@ function createMarkup(arr, list){
                     <p></p>
                     
                     <p><a href="#" class="info js-info">More Information (Modal)</a></p>
-                    <div class="${ favoritePage ?? basketPage ? invisible : visible }">
-        <button class="js-favorite" type="button">${presentFuv ? RemoveFav : AddToFav}</button>
-        <button class="js-basket" type="button">${presentBas ? RemoveBas : AddToBas}</button>
+    <div class="${ indexPage ?? favoritePage ?? basketPage ? invisible : visible }">
+    <button class="js-favorite" type="button">${presentFuv ? RemoveFav : AddToFav}</button>
+    <button class="js-basket" type="button">${presentBas ? RemoveBas : AddToBas}</button>
                     </div>
                     </li>
                     `).join('');
@@ -47,7 +48,4 @@ function createMarkup(arr, list){
 export { createMarkup };
 
 
-
-//////<p class="present"><b>Favorite</b><span>${presentFuv}</span></p>
-//////<p class="present"><b>Basket</b><span>${presentBas}</span></p>
 
