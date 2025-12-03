@@ -13,7 +13,7 @@ const favList = document.querySelector('.favorite_list');
 
 
 
-let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
+let favoriteArr = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 console.log(favoriteArr);
 
 // import { toFavorite } from './helpers/favoriteFun';

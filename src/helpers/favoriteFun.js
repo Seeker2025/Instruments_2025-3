@@ -6,8 +6,8 @@ import { findProduct } from './findProduct';
 // import { allInstruments } from '../index';
 import { stringify } from 'postcss';
 
-let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
-// let basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
+let favoriteArr = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
+let basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
 console.log(favoriteArr);
 
 
@@ -17,23 +17,23 @@ console.log(favoriteArr);
 function toFavorite(elemFuv){
 //  console.log(a llInstruments);
 
-                const product = findProduct(elemFuv);
-                console.log(product);
+               const product = findProduct(elemFuv);
+               console.log(product);
                //  console.log(favoriteArr);
-               let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
-                const inStorage = favoriteArr.some((itm)=> itm.id === product.id);
-                console.log(inStorage);//// false or true
-                const favoriteBtn = document.querySelector('button.js-favorite');                                    
+               let favoriteArr = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
+               const inStorage = favoriteArr.some((itm)=> itm.id === product.id);
+               //console.log(inStorage);//// false or true
+               //  const favoriteBtn = document.querySelector('button.js-favorite');                                    
         if(inStorage){
           //    product.presentFuv = 1;
-               console.log('if');
-               console.log(product);
+               // console.log('if');
+               // console.log(product);
                
                // console.log(favoriteBtn);
-               let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];
+               let favoriteArr = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
                favoriteArr = favoriteArr.filter((itm)=>itm.id!==product.id);
-               favoriteBtn.textContent = 'add';
-               localStorage.setItem('favorite01', JSON.stringify(favoriteArr));
+               // favoriteBtn.textContent = 'add';
+               localStorage.setItem( KEY_FAVORITE, JSON.stringify(favoriteArr));
                // console.log(favoriteArr);
             
               
@@ -50,15 +50,15 @@ function toFavorite(elemFuv){
               
            }else{
                // console.log(allInstruments);
-               console.log('else'); 
-               console.log(product);
-               product.presentFuv = 1;
+               // console.log('else'); 
+               // console.log(product);
+               // product.presentFuv = 1;
                
                favoriteArr.push(product);
-               console.log(favoriteArr);
-               favoriteBtn.textContent = 'rem';
+               // console.log(favoriteArr);
+               // favoriteBtn.textContent = 'rem';
                
-               localStorage.setItem('favorite01', JSON.stringify(favoriteArr));
+               localStorage.setItem( KEY_FAVORITE, JSON.stringify(favoriteArr));
                //  console.log(favoriteArr);
                                    // allInstruments = allInstruments.map((itm) =>{
                                    //      // console.log(itm.id);
@@ -86,33 +86,33 @@ function toFavorite(elemFuv){
 // console.log(a);
 
 
- function toBusket(elemBus, allInstruments){
-                const product = findProduct(elemBus, allInstruments);
+ function toBusket(elemBus){
+                const product = findProduct(elemBus);
                 const inStorage = basketArr.some(({ id })=> id === product.id);
                                                                            
         if(inStorage){
               
                basketArr = basketArr.filter((itm)=>itm.id!==product.id);
                localStorage.setItem(KEY_BASKET, JSON.stringify(basketArr));
-                                        allInstruments = allInstruments.map(itm =>{
-                                        if(itm.id === product.id) {
-                                        itm.presentBas = 0;
-                                            }      
-                                                 })
+                                        // allInstruments = allInstruments.map(itm =>{
+                                        // if(itm.id === product.id) {
+                                        // itm.presentBas = 0;
+                                        //     }      
+                                        //          })
                                            
                // localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(allInstruments));  
                
 
                     
           }else{
-               product.presentBas = 1;                    
+               // product.presentBas = 1;                    
                basketArr.push(product);
                localStorage.setItem(KEY_BASKET, JSON.stringify(basketArr)); 
-                                        allInstruments = allInstruments.map(itm =>{
-                                        if(itm.id === product.id) {
-                                        itm.presentBas = 1;
-                                            }      
-                                                 })
+                                        // allInstruments = allInstruments.map(itm =>{
+                                        // if(itm.id === product.id) {
+                                        // itm.presentBas = 1;
+                                        //     }      
+                                        //          })
                // localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(allInstruments));  
                
           }

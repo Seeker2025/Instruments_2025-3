@@ -7,7 +7,7 @@ import {
          toFavorite,
          toBusket
                         } from './helpers/favoriteFun';
-// import { findProduct    } from './helpers/findProduct';
+import { findProduct    } from './helpers/findProduct';
 const  { KEY_FAVORITE, KEY_BASKET, KEY_INSTRUMENT }   =   common;
 
 // const search = document.querySelector('.js-search');
@@ -31,7 +31,7 @@ function onClick(evt){
     
     if(evt.target.classList.contains('js-info')){
        
-            const product = findProduct(evt.target, allInstruments);
+            const product = findProduct(evt.target);
             
             // product.presentFuv = 0;
             // product.presentBas = 0;
@@ -72,17 +72,25 @@ function onClick(evt){
                
             //    }
   }    
+
+     if(evt.target.classList.contains('js-basket')){
+        //     product.presentBas = 1;    
+            toBusket(evt.target);
+             
+
+            
+    }
 }
 
 
  
 
-function findProduct(elem){
-    const productId = Number(elem.closest('.js-card').dataset.id)
-    // const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
-   return instruments.find(({id}) => id === productId);
+// function findProduct(elem){
+//     const productId = Number(elem.closest('.js-card').dataset.id)
+//     // const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+//    return instruments.find(({id}) => id === productId);
    
-}
+// }
 
 
 export { allInstruments };
