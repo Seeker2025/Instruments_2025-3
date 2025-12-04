@@ -27,8 +27,11 @@ export const basketPage = document.getElementById('basket');
 function createModal({img, name, price, description, id, presentFuv, presentBas}){
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
    
@@ -57,8 +60,12 @@ function createModal({img, name, price, description, id, presentFuv, presentBas}
                   <button class="button js-basket button_fav" type="button">
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                         <span class="no">Remove from busket</span>
                         <span class="yes vis">Add to basket</span>
+=======
+                       'text'
+>>>>>>> Stashed changes
 =======
                        'text'
 >>>>>>> Stashed changes
@@ -99,6 +106,7 @@ instance.show();
  const modal = document.querySelector('.modal');
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 //  console.log(modal);
 // const favoriteModal = document.querySelector('.modal ul li button.js-favorite');
 // const basketModal =   document.querySelector('.modal ul li button.js-basket');
@@ -107,6 +115,8 @@ instance.show();
                     // console.log(favoriteModal);
                     // console.log(basketModal);
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
  
@@ -132,6 +142,7 @@ if(inFavor){
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
  modal.addEventListener('click', onClick);
                    
@@ -145,6 +156,11 @@ if(inFavor){
  modal.addEventListener('click', onClick);
                    
                                           function onClick(evt){
+=======
+ modal.addEventListener('click', onClick);
+                   
+                                          function onClick(evt){
+>>>>>>> Stashed changes
                                           evt.preventDefault();
                                           
                                                 
