@@ -26,8 +26,11 @@ export const basketPage = document.getElementById('basket');
 
 function createModal({img, name, price, description, id, presentFuv, presentBas}){
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   
 =======
+=======
+>>>>>>> Stashed changes
    
  
 >>>>>>> Stashed changes
@@ -53,8 +56,12 @@ function createModal({img, name, price, description, id, presentFuv, presentBas}
                 <li> 
                   <button class="button js-basket button_fav" type="button">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                         <span class="no">Remove from busket</span>
                         <span class="yes vis">Add to basket</span>
+=======
+                       'text'
+>>>>>>> Stashed changes
 =======
                        'text'
 >>>>>>> Stashed changes
@@ -91,6 +98,7 @@ instance.show();
 
  const modal = document.querySelector('.modal');
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 //  console.log(modal);
 // const favoriteModal = document.querySelector('.modal ul li button.js-favorite');
 // const basketModal =   document.querySelector('.modal ul li button.js-basket');
@@ -99,6 +107,8 @@ instance.show();
                     // console.log(favoriteModal);
                     // console.log(basketModal);
 =======
+=======
+>>>>>>> Stashed changes
  
 //  btnFavorite.textContent = 'Remove from';
 
@@ -121,6 +131,7 @@ if(inFavor){
   btnFavorite.textContent = 'Add to';
 }
 
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
  modal.addEventListener('click', onClick);
                    
@@ -130,6 +141,18 @@ if(inFavor){
                                           // console.log(evt.target.closest('.js-favorite'));
 =======
                                           evt.preventDefault();
+=======
+ modal.addEventListener('click', onClick);
+                   
+                                          function onClick(evt){
+                                          evt.preventDefault();
+                                          
+                                                
+                 if(evt.target.closest('.js-favorite')){
+                 //const sel = evt.target.closest('.js-favorite');
+                 //const yes = sel.querySelector('.yes');
+                 //const no = sel.querySelector('.no');
+>>>>>>> Stashed changes
                                           
 >>>>>>> Stashed changes
                                                 
