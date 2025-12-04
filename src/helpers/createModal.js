@@ -25,7 +25,12 @@ export const favoritePage = document.getElementById('favorite');
 export const basketPage = document.getElementById('basket');
 
 function createModal({img, name, price, description, id, presentFuv, presentBas}){
+<<<<<<< Updated upstream
   
+=======
+   
+ 
+>>>>>>> Stashed changes
      const instance = basicLightbox.create(`
 	    <div class="modal js-card" data-id=${id}>
             <div class="cross">
@@ -47,8 +52,12 @@ function createModal({img, name, price, description, id, presentFuv, presentBas}
                 </li>
                 <li> 
                   <button class="button js-basket button_fav" type="button">
+<<<<<<< Updated upstream
                         <span class="no">Remove from busket</span>
                         <span class="yes vis">Add to basket</span>
+=======
+                       'text'
+>>>>>>> Stashed changes
                   </button>
                 </li>  
               </ul>
@@ -81,6 +90,7 @@ instance.show();
                     }
 
  const modal = document.querySelector('.modal');
+<<<<<<< Updated upstream
 //  console.log(modal);
 // const favoriteModal = document.querySelector('.modal ul li button.js-favorite');
 // const basketModal =   document.querySelector('.modal ul li button.js-basket');
@@ -88,13 +98,40 @@ instance.show();
 // const no =  document.querySelector('button.js-favorite span.no');
                     // console.log(favoriteModal);
                     // console.log(basketModal);
+=======
+ 
+//  btnFavorite.textContent = 'Remove from';
+
+ ////// This is for second button in favorite page
+ const btnFavorite = document.querySelector('div.modal button.js-favorite');
+ const btnBasket = document.querySelector('div.modal button.js-basket');
+ 
+ const inBasket = basketArr.some(itm=>itm.id===id);
+ if(inBasket){
+    btnBasket.textContent = 'Remove from';
+ }else{
+    btnBasket.textContent = 'Add to';
+ }
+ 
+const inFavor = favoriteArr.some(itm=>itm.id===id);
+console.log(inFavor);
+if(inFavor){
+  btnFavorite.textContent = 'Remove from';
+}else{
+  btnFavorite.textContent = 'Add to';
+}
+
+>>>>>>> Stashed changes
  modal.addEventListener('click', onClick);
-                    // console.log(favoritePage);
-                    // console.log(basketPage);
-                    // console.log(indexPage);
+                   
                                           function onClick(evt){
+<<<<<<< Updated upstream
                                           // console.log(evt.target);
                                           // console.log(evt.target.closest('.js-favorite'));
+=======
+                                          evt.preventDefault();
+                                          
+>>>>>>> Stashed changes
                                                 
                                           if(evt.target.closest('.js-favorite')){
                  const sel = evt.target.closest('.js-favorite');
@@ -104,9 +141,67 @@ instance.show();
                                                  no.classList.toggle('vis');
                                                 // console.log(evt.target.closest('.js-favorite'));
                                                 if(indexPage){
+<<<<<<< Updated upstream
                 toFavorite(evt.target, allInstruments); 
 
               
+=======
+                  
+                                   
+                // if(favoriteArr.some((itm)=>itm.id ===id)){
+                //   btnFavorite.textContent='No'; 
+                //  }else{
+                //   btnFavorite.textContent='Add';
+                //  }   
+    // const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+    
+                // if(inFavor){
+                //  btnFavorite.textContent = 'Remove from';
+                //console.log('No');
+                // }else{
+                //  btnFavorite.textContent = 'Add to';
+                // console.log('Yes!');
+                // }                                 
+                                          // console.log(allInstruments);  
+// const allInstruments02 = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+                toFavorite(evt.target, instruments);
+
+                // let inFavor02 = favoriteArr.some(itm=>itm.id===id);
+                //  console.log(inFavor02);  
+               
+                 
+                //                     if(inFavor02){
+                //                      btnFavorite.textContent = 'Remove from';
+                //                     //console.log('Rem');
+                //                     }else{
+                //                      // console.log('Add');
+                //                      btnFavorite.textContent = 'Add to';
+                //                    }
+//  let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];               
+                                               
+                                                }
+                                                 if(favoritePage){
+                                                  
+                                                
+                toFavorite(evt.target, favoriteArr);
+                const favoriteLoc = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
+                createMarkup(favoriteLoc, favList);
+// console.log(btnFavorite.textContent);
+                if(btnFavorite.textContent === 'Add to'){
+                btnFavorite.textContent = 'Remove from';
+                }else{
+                btnFavorite.textContent = 'Add to';
+                } 
+                //if(favoriteArr.some((itm)=>itm.id ===id)){
+                //   btnFavorite.textContent='No'; 
+                //  }else{
+                //   btnFavorite.textContent='Add';
+                //  }  
+                                                 }
+                                                 if(basketPage){
+                console.log('a');
+                console.log('a');
+>>>>>>> Stashed changes
                 
                                               
                                                 }
