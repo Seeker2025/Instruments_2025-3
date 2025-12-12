@@ -1,22 +1,13 @@
 import * as basicLightbox from 'basiclightbox'
 import "basiclightbox/dist/basicLightbox.min.css";
 
-// let AddToFav = 'Add to favorite';
-// let RemoveFav = 'Remove from';
-// let AddToBas = 'Add to basket';
-// let RemoveBas = 'Remove from';
-
 import { instruments    } from '../instruments';
 
 import { common } from '../common';
-const  { KEY_FAVORITE, KEY_BASKET,  KEY_INSTRUMENT} = common;
-// const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+const  { KEY_FAVORITE, KEY_BASKET } = common;
+
 let favoriteArr = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 let basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
-
-// console.log(allInstruments);
-// import { allInstruments } from '../index';
-// console.log(allInstruments);
 
 import {  closeMadal } from './closeModal';
 import { createMarkup } from './createMarkup';
@@ -87,157 +78,103 @@ instance.show();
                     }
 
  const modal = document.querySelector('.modal');
- const btnFavorite = document.querySelector('div.modal button.js-favorite');
- btnFavorite.textContent = 'Remove from';
 
- ////// This is for second button in favorite page
+
+              ////// This is for second button
  const btnBasket = document.querySelector('div.modal button.js-basket');
- const inBasket = basketArr.some(itm=>itm.id===id);
-//  console.log(inBasket);
- if(inBasket){
-    btnBasket.textContent = 'Remove from';
- }else{
-    btnBasket.textContent = 'Add to';
- }
- 
- const inFavor = favoriteArr.some(itm=>itm.id===id);
- console.log(inFavor);
-if(inFavor){
-  btnFavorite.textContent = 'Remove from';
-}else{
-  btnFavorite.textContent = 'Add to';
-}
+              const inBasket = basketArr.some(itm=>itm.id===id);
 
-//  console.log(inFavor);  
-//  console.log(modal);
-// const favoriteModal = document.querySelector('.modal ul li button.js-favorite');
-// const basketModal =   document.querySelector('.modal ul li button.js-basket');
+                if(inBasket){
+              btnBasket.textContent = 'Remove from basket';
+                }else{
+              btnBasket.textContent = 'Add to basket';
+                }
+              ////// This is for first button
+ const btnFavorite = document.querySelector('div.modal button.js-favorite');              
+              const inFavor = favoriteArr.some(itm=>itm.id===id);
+              
+                if(inFavor){
+              btnFavorite.textContent = 'Remove from favorite';
+                }else{
+              btnFavorite.textContent = 'Add to favorite';
+                }
 
-// const no =  document.querySelector('button.js-favorite span.no');
-                    // console.log(favoriteModal);
-                    // console.log(basketModal);
  modal.addEventListener('click', onClick);
-                    // console.log(favoritePage);
-                    // console.log(basketPage);
-                    // console.log(indexPage);
+                    
                                           function onClick(evt){
                                           evt.preventDefault();
-                                          // console.log(evt.target);
-                                          // console.log(evt.target.closest('.js-favorite'));
+                                         
                                                 
-                 if(evt.target.closest('.js-favorite')){
-                 //const sel = evt.target.closest('.js-favorite');
-                 //const yes = sel.querySelector('.yes');
-                 //const no = sel.querySelector('.no');
-                                          
-                                                // yes.classList.toggle('vis');
-                                                // no.classList.toggle('vis');
-                                                // console.log(evt.target.closest('.js-favorite'));
+      if(evt.target.closest('.js-favorite')){
+                 
                                                 if(indexPage){
                   
-                                   
-                // if(favoriteArr.some((itm)=>itm.id ===id)){
-                //   btnFavorite.textContent='No'; 
-                //  }else{
-                //   btnFavorite.textContent='Add';
-                //  }   
-    // const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
-    
-                // if(inFavor){
-                //  btnFavorite.textContent = 'Remove from';
-                //console.log('No');
-                // }else{
-                //  btnFavorite.textContent = 'Add to';
-                // console.log('Yes!');
-                // }                                 
-                                          // console.log(allInstruments);  
-// const allInstruments02 = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
                 toFavorite(evt.target, instruments);
-               
-//  let favoriteArr = JSON.parse(localStorage.getItem('favorite01')) ?? [];               
+                  if(btnFavorite.textContent === 'Add to favorite'){
+                btnFavorite.textContent = 'Remove from favorite';
+                  }else{
+                btnFavorite.textContent = 'Add to favorite';
+                  }     
+              
                                                
                                                 }
-                                                 if(favoritePage){
+                                                if(favoritePage){
                                                   
-                                                
                 toFavorite(evt.target, favoriteArr);
                 const favoriteLoc = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
                 createMarkup(favoriteLoc, favList);
-// console.log(btnFavorite.textContent);
-                if(btnFavorite.textContent === 'Add to'){
-                btnFavorite.textContent = 'Remove from';
-                }else{
-                btnFavorite.textContent = 'Add to';
-                } 
-                //if(favoriteArr.some((itm)=>itm.id ===id)){
-                //   btnFavorite.textContent='No'; 
-                //  }else{
-                //   btnFavorite.textContent='Add';
-                //  }  
-                                                 }
-                                                 if(basketPage){
-                console.log('a');
-                console.log('a');
-                
-                let  favoriteLoc = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];                                  
-                toFavorite(evt.target, favoriteLoc);
-                if(btnFavorite.textContent === 'Remove from'){
-                btnFavorite.textContent = 'Add to';
-                }else{
-                btnFavorite.textContent = 'Remove from';
-                } 
-                // let basketArrLoc = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];                                  
-                // toBusket(evt.target, basketArrLoc);
-                //const basketLoc = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
-                // createMarkup(basketLoc, favList);
-                                                }
- 
 
-                                            }
-                                         
-
-
-
-
-                                          
- 
-                if(evt.target.closest('.js-basket')){
-                                                // console.log(evt.target.closest('.js-basket'));
-                //  const sel = evt.target.closest('.js-basket');
-                //  const yes = sel.querySelector('.yes');
-                //  const no = sel.querySelector('.no');                              
-                //                                  yes.classList.toggle('vis');
-                //                                  no.classList.toggle('vis');
-
-                                                if(indexPage){
-                toBusket(evt.target, basketArr);
+                  if(btnFavorite.textContent === 'Add to favorite'){
+                btnFavorite.textContent = 'Remove from favorite';
+                  }else{
+                btnFavorite.textContent = 'Add to favorite';
+                  } 
+                  
                                                 }
                                                 if(basketPage){
-                 console.log("d")                                 
-                 console.log("d")                                 
+                let  favoriteLoc = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];                                  
+                toFavorite(evt.target, favoriteLoc);
+                  if(btnFavorite.textContent === 'Remove from favorite'){
+                btnFavorite.textContent = 'Add to favorite';
+                  }else{
+                btnFavorite.textContent = 'Remove from favorite';
+                  } 
+                          }
+                                  }
+                                         
+                     
+ 
+      if(evt.target.closest('.js-basket')){
+                                                if(indexPage){
+                toBusket(evt.target, basketArr);
+                 if(btnBasket.textContent === 'Remove from basket'){
+                btnBasket.textContent = 'Add to basket';
+                }else{
+                btnBasket.textContent = 'Remove from basket';
+                }  
+                                                }
+                                                if(basketPage){
+                                         
                 toBusket(evt.target, basketArr);
                 const basketArrLoc = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
                 createMarkup(basketArrLoc, basketList);
-                if(btnBasket.textContent === 'Remove from'){
-                btnBasket.textContent = 'Add to';
-                }else{
-                btnBasket.textContent = 'Remove from';
-                }  
+                  if(btnBasket.textContent === 'Remove from basket'){
+                btnBasket.textContent = 'Add to basket';
+                  }else{
+                btnBasket.textContent = 'Remove from basket';
+                  }  
                                                 
-                // toBusket(evt.target, allInstruments);
-                // console.log(id);  
-                //
-                // createMarkup(basketArr,  basketList);  
+                  
                                                 }
                                                 if(favoritePage){
                 let basketArrLoc = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];                                  
                 toBusket(evt.target, basketArrLoc);
-                if(btnBasket.textContent === 'Remove from'){
-                btnBasket.textContent = 'Add to';
-                }else{
-                btnBasket.textContent = 'Remove from';
-                } 
-                // console.log('id'); 
+                  if(btnBasket.textContent === 'Remove from basket'){
+                btnBasket.textContent = 'Add to basket';
+                  }else{
+                btnBasket.textContent = 'Remove from basket';
+                  } 
+               
                                                 }
                                             }
                                           }
