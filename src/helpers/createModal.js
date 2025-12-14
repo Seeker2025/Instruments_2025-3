@@ -25,7 +25,7 @@ export const favoritePage = document.getElementById('favorite');
 export const basketPage = document.getElementById('basket');
 
 
-function createModal({img, name, price, description, id, presentFuv, presentBas}){
+function createModal({img, name, price, description, id}){
   
  
      const instance = basicLightbox.create(`
@@ -109,7 +109,7 @@ instance.show();
                  
                                                 if(indexPage){
                   
-                toFavorite(evt.target, instruments);
+                toFavorite(evt.target);
                   if(btnFavorite.textContent === 'Add to favorite'){
                 btnFavorite.textContent = 'Remove from favorite';
                   }else{
@@ -120,7 +120,7 @@ instance.show();
                                                 }
                                                 if(favoritePage){
                                                   
-                toFavorite(evt.target, favoriteArr);
+                toFavorite(evt.target);
                 const favoriteLoc = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
                 createMarkup(favoriteLoc, favList);
 
@@ -146,7 +146,7 @@ instance.show();
  
       if(evt.target.closest('.js-basket')){
                                                 if(indexPage){
-                toBusket(evt.target, basketArr);
+                toBusket(evt.target);
                  if(btnBasket.textContent === 'Remove from basket'){
                 btnBasket.textContent = 'Add to basket';
                 }else{
@@ -155,7 +155,7 @@ instance.show();
                                                 }
                                                 if(basketPage){
                                          
-                toBusket(evt.target, basketArr);
+                toBusket(evt.target);
                 const basketArrLoc = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
                 createMarkup(basketArrLoc, basketList);
                   if(btnBasket.textContent === 'Remove from basket'){
@@ -167,8 +167,8 @@ instance.show();
                   
                                                 }
                                                 if(favoritePage){
-                let basketArrLoc = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];                                  
-                toBusket(evt.target, basketArrLoc);
+                // let basketArrLoc = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];                                  
+                toBusket(evt.target);
                   if(btnBasket.textContent === 'Remove from basket'){
                 btnBasket.textContent = 'Add to basket';
                   }else{
